@@ -1,19 +1,28 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { Roboto } from "next/font/google"
+import { PopupProvider } from "./PopupContext";
 
 export const metadata: Metadata = {
-  title: "Next.js on GitHub Pages",
-  description: "Static Site Generation example",
+    title: "Aziz Hakberdiev",
+    description: "The living page",
 };
 
+const roboto = Roboto({
+    subsets: ["latin"],
+    weight: ["400", "700"]
+})
+
 export default function RootLayout({
-  children,
+    children,
 }: Readonly<{
-  children: React.ReactNode;
+    children: React.ReactNode;
 }>) {
-  return (
-    <html lang="en">
-      <body>{children}</body>
-    </html>
-  );
+    return (
+        <html lang="en" className={roboto.className}>
+            <body>
+                <PopupProvider>{children}</PopupProvider>
+            </body>
+        </html>
+    );
 }
