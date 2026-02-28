@@ -8,21 +8,28 @@ export default function Home() {
     const { addPopup } = usePopup();
 
     return (
-        <main style={{ padding: "2rem", fontFamily: "system-ui, sans-serif" }}>
-            <h1>Hello, GitHub Pages!</h1>
-            <p>This is a static Next.js site deployed via GitHub Actions.</p>
-            <button onClick={() => addPopup("This is a popup message!")} style={{ marginBottom: '1rem', padding: '0.5rem 1rem', cursor: 'pointer' }}>
-                Show Popup
-            </button>
+        <>
+            <main style={{ padding: "2rem", fontFamily: "system-ui, sans-serif" }}>
+                <h1>Hello, GitHub Pages!</h1>
+                <p>This is a static Next.js site deployed via GitHub Actions.</p>
+                <button onClick={() => addPopup("This is a popup message!")} style={{ marginBottom: '1rem', padding: '0.5rem 1rem', cursor: 'pointer' }}>
+                    Show Popup
+                </button>
+            </main>
             <Boundary width={1500} height={800}>
                 <Window>Hello World</Window>
                 <Pad>I am on a Pad</Pad>
                 <Pad width={800} height={600}>
                     <Boundary width={700} height={500}>
-                        <Window>Hello World</Window>
+                        <Window width={500} height={300}>
+                            <Boundary width={400} height={200}>
+                                <Window>Hello World</Window>
+                            </Boundary>
+                        </Window>
                     </Boundary>
                 </Pad>
             </Boundary>
-        </main>
+        </>
+
     );
 }

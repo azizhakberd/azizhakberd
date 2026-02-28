@@ -22,7 +22,7 @@ export const useBoundary = () => {
 interface BoundaryProps {
     width?: number,
     height?: number,
-    children: ReactNode;
+    children?: ReactNode;
 }
 
 export default function Boundary({ width, height, children }: BoundaryProps) {
